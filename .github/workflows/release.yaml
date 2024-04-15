@@ -19,10 +19,15 @@ jobs:
     - name: Build with Gradle
       run: bash ./gradlew build
       
-    - name: Upload a Build Artifact
+    - name: Upload a debug Build Artifact
       uses: actions/upload-artifact@v4.3.1
       with:
-        path: app/build/outputs/apk/
+        path: app/build/outputs/apk/debug/app-debug.apk
+
+    - name: Upload a release Build Artifact
+      uses: actions/upload-artifact@v4.3.1
+      with:
+        path: app/build/outputs/apk/release/app-release-unsigned.apk
         
         
     # - name: Release
